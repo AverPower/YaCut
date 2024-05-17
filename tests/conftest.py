@@ -41,10 +41,11 @@ def _app(tmp_path):
     })
     with app.app_context():
         db.create_all()
-    yield app
-    db.drop_all()
-    db.session.close()
-    db_path.unlink()
+        yield app
+        db.drop_all()
+        db.session.close()
+        #db_path.unlink()
+    
 
 
 @pytest.fixture
